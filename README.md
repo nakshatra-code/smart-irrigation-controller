@@ -20,3 +20,9 @@ void loop() {
   }
   delay(2000);
 }
+
+
+**#read_serial.py**
+
+
+
