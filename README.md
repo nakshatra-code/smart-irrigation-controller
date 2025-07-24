@@ -23,6 +23,18 @@ void loop() {
 
 
 **#read_serial.py**
+import serial
+import time
+
+ser = serial.Serial('COM3', 9600, timeout=1)  # change to COM4 if needed
+time.sleep(2)  # give Arduino time to reset
+
+while True:
+    if ser.in_waiting > 0:
+        data = ser.readline().decode('utf-8').strip()
+        if data:
+            print("Soil moisture:", data)
+    time.sleep(1)
 
 
 
