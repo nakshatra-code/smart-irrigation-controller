@@ -22,20 +22,31 @@ void loop() {
 }
 
 
-**#read_serial.py**
-<br>
-import serial
+**#fakeserial_irrigationcontroller.py**
+import random
 import time
 
-ser = serial.Serial('COM3', 9600, timeout=1)  # change to COM4 if needed
-time.sleep(2)  # give Arduino time to reset
+CROP_THRESHOLD = 600  # threshold for irrigation decision
+
+def should_irrigate(moisture, rain_expected=False):
+    return (moisture < CROP_THRESHOLD) and not rain_expected
 
 while True:
-    if ser.in_waiting > 0:
-        data = ser.readline().decode('utf-8').strip()
-        if data:
-            print("Soil moisture:", data)
-    time.sleep(1)
+    # Simulate reading moisture sensor
+    moisture = random.randint(300, 800)
+    rain_expected = False  # skip rain forecast for now
+
+   print(f"Moisture: {moisture}, Rain: {rain_expected}")
+
+  if should_irrigate(moisture, rain_expected):
+        print("Irrigation ON")
+    else:
+        print("Irrigation OFF")
+
+   time.sleep(2)
+
+
+
 
     
 
