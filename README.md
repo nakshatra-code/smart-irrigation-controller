@@ -36,5 +36,9 @@ while True:
             print("Soil moisture:", data)
     time.sleep(1)
 
+    
+
+
+
 
 
