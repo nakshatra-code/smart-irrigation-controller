@@ -23,6 +23,7 @@ void loop() {
 
 
 **#read_serial.py**
+<br>
 import serial
 import time
 
